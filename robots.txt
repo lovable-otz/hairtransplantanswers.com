@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# AI SEARCH crawlers - ALLOW. These answer live queries and can cite you.
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
+# AI TRAINING crawlers - a separate business decision. Allowing them does NOT improve rankings.
+User-agent: GPTBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+
+Sitemap: https://hairtransplantanswers.com/sitemap.xml
