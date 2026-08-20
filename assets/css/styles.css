@@ -478,6 +478,19 @@ ul { margin:0; padding:0; list-style:none; }
 .ctable tbody tr:last-child td { border-bottom:0; }
 .ctable tbody tr:nth-child(even) td { background:#FAFCFB; }
 .ctable td:first-child, .ctable th:first-child { font-weight:600; color:var(--color-heading); }
+/* On phones, stack the comparison table into labeled cards (no sideways scroll) */
+@media (max-width:600px){
+  .ctable-wrap { overflow-x:visible; border:0; border-radius:0; background:transparent !important; }
+  .ctable { min-width:0; width:100%; font-size:1rem; }
+  .ctable thead { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); border:0; }
+  .ctable tbody, .ctable tr, .ctable td { display:block; width:auto; }
+  .ctable tr { border:1px solid var(--color-border); border-radius:var(--radius-card); background:#fff; padding:var(--space-2) var(--space-5) var(--space-4); margin-bottom:var(--space-4); box-shadow:var(--shadow-sm); }
+  .ctable tbody tr:nth-child(even) td { background:transparent; }
+  .ctable td { border:0; border-bottom:1px solid var(--color-border); padding:10px 0; display:flex; align-items:baseline; justify-content:space-between; gap:var(--space-5); text-align:right; }
+  .ctable td:last-child { border-bottom:0; padding-bottom:0; }
+  .ctable td:not(:first-child)::before { content:attr(data-label); font-weight:700; color:var(--color-primary); text-align:left; }
+  .ctable td:first-child { display:block; text-align:left; font-family:var(--font-heading); font-size:1.15rem; font-weight:700; color:var(--color-heading); padding:2px 0 10px; margin-bottom:6px; border-bottom:2px solid var(--color-muted-green); }
+}
 
 /* Related guide cards */
 .rel-cards { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--space-4); }
